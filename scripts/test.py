@@ -1,7 +1,7 @@
 import sys
 n = len(sys.argv)
 print("Total arguments passed:", n)
- 
+print("\n Sys.argv[1]", sys.argv[1])
 # Arguments passed
 print("\nName of Python script:", sys.argv[0])
  
