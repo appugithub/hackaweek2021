@@ -35,4 +35,3 @@ jobs:
     - name: Send greeting
       run: |
             python ./scripts/test.py "${{ github.event.head_commit.message }}"
-#test
