@@ -34,5 +34,7 @@ jobs:
           python-version: 3.8 #install the python needed    
     - name: Send greeting
       run: |
-            commits=${{join(github.event.commits.\*.message, ', ') }}  
-            python ./scripts/test.py "Hello ${{ commits }}"
+            commits=${{join(github.event.commits.\*.message, ', ') }}
+            echo $commits
+#python ./scripts/test.py "${{ commits }}"
+#test
