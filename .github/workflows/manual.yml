@@ -27,4 +27,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: python test.py "Hello ${{ github.event.inputs.name }}"
+      run: python ./scripts/test.py "Hello ${{ github.event.inputs.name }}"
