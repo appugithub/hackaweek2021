@@ -21,7 +21,7 @@ from requests_oauthlib import OAuth1
 print('START UPDATE PR')
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
 payload = {
-    "title": "New title 22"
+    "title": "New title 33"
 }
 
 r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
