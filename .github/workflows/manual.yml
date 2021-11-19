@@ -36,12 +36,13 @@ jobs:
     - name: Send greeting
       env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
 #  run: echo "$GITHUB_CONTEXT"    
       run: |
              pip install requests
              pip install requests_oauthlib
              echo "$GITHUB_CONTEXT"
-             python ./scripts/test.py "${{ github.event.pull_request._links.commits.href }}"
+             python ./scripts/test.py "${{ github.event.pull_request._links.commits.href }}" "$GITHUB_TOKEN"
 #            python ./scripts/test.py "${{ github.event.head_commit.message }}"
 #            python ./scripts/test.py "$GITHUB_CONTEXT"
 #test
