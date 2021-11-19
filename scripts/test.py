@@ -2,7 +2,7 @@ import sys
 n = len(sys.argv)
 print("Total arguments passed:", n)
 print("\n Sys.argv[1]", sys.argv[1])
-print("\n Sys.argv[2]", sys.argv[1])
+print("\n Sys.argv[2]", sys.argv[2])
 # Arguments passed
 print("\nName of Python script:", sys.argv[0])
 print('test1')
@@ -19,9 +19,9 @@ url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2/commits"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 print(r.json())
 
-url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/1"
+url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
 payload = {
-    "title": "New title"
+    "title": "New title 1"
 }
 
 r = requests.patch(url, auth=("appu.rongala@gmail.com", token), json=payload)
