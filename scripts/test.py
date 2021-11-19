@@ -10,14 +10,13 @@ for i in range(1, n):
     print(sys.argv[i], end = " ")
 url = sys.argv[1]
 
-token = "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"
+token = "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"
 import requests, json
 from requests_oauthlib import OAuth1
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2/commits"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 print(r.json())
 
-token = "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"
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/1"
 payload = {
     "title": "New title"
