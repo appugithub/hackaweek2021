@@ -14,7 +14,7 @@ import requests, json
 from requests_oauthlib import OAuth1
 
 token = "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"
-r = requests.patch(url, auth=("appu.rongala@gmail.com", token))
+r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 print(r.json())
 
 # url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/1"
