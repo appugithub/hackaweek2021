@@ -11,7 +11,7 @@ for i in range(1, n):
     print(sys.argv[i], end = " ")
 url = sys.argv[1]
 
-#token = "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"
+token = "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"
 token = sys.argv[2]
 import requests, json
 from requests_oauthlib import OAuth1
@@ -19,14 +19,16 @@ url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2/commits"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 print(r.json())
 
+print('START UPDATE PR')
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
 payload = {
     "title": "New title 1"
 }
 
-r = requests.patch(url, auth=("appu.rongala@gmail.com", token), json=payload)
+r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
 
 print(r.json())
+print('END UPDATE PR')
 
 CLIENT_KEY = '3e6ea444875da784aadae6abc5124b15'
 CLIENT_SECRET = '15d032680057485f96e074978b097179b5155d50'
