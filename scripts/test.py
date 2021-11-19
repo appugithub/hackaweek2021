@@ -13,7 +13,7 @@ url = sys.argv[1]
 import requests, json
 from requests_oauthlib import OAuth1
 
-token = "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"
+token = "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"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 print(r.json())
 
