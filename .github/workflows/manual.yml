@@ -40,6 +40,7 @@ jobs:
       run: |
              pip install requests
              pip install requests_oauthlib
+             echo "$GITHUB_CONTEXT"
              python ./scripts/test.py "${{ github.event.pull_request.commits.href }}"
 #            python ./scripts/test.py "${{ github.event.head_commit.message }}"
 #            python ./scripts/test.py "$GITHUB_CONTEXT"
