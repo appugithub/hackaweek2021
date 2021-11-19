@@ -36,7 +36,7 @@ jobs:
     - name: Send greeting
       env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.hackaweek.PAT }}
 #  run: echo "$GITHUB_CONTEXT"    
       run: |
              pip install requests
