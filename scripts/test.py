@@ -42,15 +42,7 @@ pp_token = get_pp_token_from_yml()
 
 #response = requests.get(url=test_api_url, auth=pp_token)
 
-card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
-result = requests.get(url=card_url, auth=pp_token)
-r = result.json()
-print(r)
-# print(type(r))
-# print(result)
-print(type(r))
-card_name = r['title']
-card_description = r['description']
+
 
 
 for each in r.json():
@@ -65,7 +57,15 @@ for each in r.json():
    requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
 
-   
+card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
+result = requests.get(url=card_url, auth=pp_token)
+r = result.json()
+print(r)
+# print(type(r))
+# print(result)
+print(type(r))
+card_name = r['title']
+card_description = r['description']   
          
 print('START UPDATE PR')
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
