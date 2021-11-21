@@ -73,7 +73,7 @@ print('START UPDATE PR')
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
 payload = {
     "title": card_name,
-    "description": card_description
+    "body": card_description
 }
 
 r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
