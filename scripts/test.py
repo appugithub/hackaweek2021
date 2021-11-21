@@ -57,7 +57,9 @@ for each in r.json():
    
 card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
 result = requests.get(card_url, auth=("appu.rongala@gmail.com", token))
-r = result.json()
+print(type(result)
+print(result)
+#r = result.json()
 card_name = result['name']
 card_description = result['description']
 
