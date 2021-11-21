@@ -56,8 +56,7 @@ for each in r.json():
    requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
 card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
-result = requests.get(url, auth=("appu.rongala@gmail.com", token)).json()
-print(result)
+result = requests.get(card_url, auth=("appu.rongala@gmail.com", token)).json()
 card_name = result['name']
 card_description = result['description']
 
