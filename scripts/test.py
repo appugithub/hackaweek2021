@@ -43,10 +43,7 @@ pp_token = get_pp_token_from_yml()
 #response = requests.get(url=test_api_url, auth=pp_token)
 
 card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
-result = requests.get(card_url, auth=("appu.rongala@gmail.com", token))
-print(type(result))
-print(result)
-#r = result.json()
+result = requests.get(url=card_url, auth=pp_token).json()
 card_name = result['name']
 card_description = result['description']
 
