@@ -55,16 +55,21 @@ for each in r.json():
    card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
    requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
+card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
+result = requests.get(url, auth=("appu.rongala@gmail.com", token)).json()
+card_name = result['name']
+card_description = result['description']
 
    
          
-# print('START UPDATE PR')
-# url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
-# payload = {
-#     "title": "New title 33"
-# }
+print('START UPDATE PR')
+url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
+payload = {
+    "title": card_name,
+    "description": card_description
+}
 
-# r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
+r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
 
 # print(r.json())
 # print('END UPDATE PR')
