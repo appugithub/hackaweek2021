@@ -66,6 +66,8 @@ print(r)
 print(type(r))
 card_name = r['title']
 card_description = r['description']   
+print('CARD DESCRIPTION')
+print(card_description)
          
 print('START UPDATE PR')
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
