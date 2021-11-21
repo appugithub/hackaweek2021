@@ -49,7 +49,7 @@ print(r)
 # print(type(r))
 # print(result)
 print(type(r))
-card_name = r['name']
+card_name = r['title']
 card_description = r['description']
 
 
