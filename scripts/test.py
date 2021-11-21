@@ -16,7 +16,7 @@ import requests, json
 from requests_oauthlib import OAuth1
 url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2/commits"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
-commits = [each['message'] for each in json.loads(r)]
+commits = [each['message'] for each in r.json()]
 print(commits)
 # print('START UPDATE PR')
 # url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
