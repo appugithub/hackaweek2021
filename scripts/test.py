@@ -18,8 +18,7 @@ url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2/commits"
 r = requests.get(url, auth=("appu.rongala@gmail.com", token))
 commits = [each for each in r.json()]
 for each in r.json():
-   print(each)
-   print(type(each))
+   print(each['commit']['message'])
          
 # print('START UPDATE PR')
 # url = "https://api.github.com/repos/appugithub/hackaweek2021/pulls/2"
