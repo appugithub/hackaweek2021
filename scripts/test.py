@@ -53,7 +53,7 @@ for each in r.json():
            "send_to_external": False,
            "sent_from": "web"}
    card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
-   requests.get(url=card_comment_url, auth=pp_token, data=payload)
+   requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
 
    
