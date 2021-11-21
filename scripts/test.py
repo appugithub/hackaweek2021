@@ -42,6 +42,13 @@ pp_token = get_pp_token_from_yml()
 
 #response = requests.get(url=test_api_url, auth=pp_token)
 
+card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
+result = requests.get(card_url, auth=("appu.rongala@gmail.com", token))
+print(type(result))
+print(result)
+#r = result.json()
+card_name = result['name']
+card_description = result['description']
 
 
 for each in r.json():
@@ -55,13 +62,6 @@ for each in r.json():
    card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
    requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
-card_url = 'https://service.projectplace.com/api/v1/cards/15042478'
-result = requests.get(card_url, auth=("appu.rongala@gmail.com", token))
-print(type(result))
-print(result)
-#r = result.json()
-card_name = result['name']
-card_description = result['description']
 
    
          
