@@ -57,7 +57,7 @@ r = ["Store Account History \n Added stub to store the history",
 for each in r:
    #message = each['commit']['message']
    message = each
-   card_id = 15043329
+   card_id = 15043418
    print(message)
    # if len(message.split(':')) > 1:
    #    card_id = message.split(':')[0].split('-')[1].strip()
