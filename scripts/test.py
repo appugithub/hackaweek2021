@@ -13,15 +13,16 @@ url = sys.argv[1]
 
 token = sys.argv[2]
 context = sys.argv[3]
-print(context)
+#print(context)
 import requests, json
 from requests_oauthlib import OAuth1
 repo = context['repository']
 pr_number = context['event']['number']
-
+print(repo)
+print(pr_number)
 commits_url = f"https://api.github.com/repos/{repository}/pulls/{pr_number}/commits"
 r = requests.get(commits_url, auth=("appu.rongala@gmail.com", token))
-commits = [each for each in r.json()]
+3commits = [each for each in r.json()]
 
 CLIENT_KEY = '3e6ea444875da784aadae6abc5124b15'
 CLIENT_SECRET = '15d032680057485f96e074978b097179b5155d50'
@@ -66,31 +67,31 @@ for each in r.json():
       card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
       requests.post(url=card_comment_url, auth=pp_token, data=payload)
    
+if global_card_id:
+    card_url = f'https://service.projectplace.com/api/v1/cards/{global_card_id}'
+    result = requests.get(url=card_url, auth=pp_token)
+    r = result.json()
+    print(r)
+    # print(type(r))
+    # print(result)
+    print(type(r))
+    card_name = r['title']
+    card_description = r['description']   
+    print('CARD DESCRIPTION')
+    print(card_description)
 
-card_url = f'https://service.projectplace.com/api/v1/cards/{global_card_id}'
-result = requests.get(url=card_url, auth=pp_token)
-r = result.json()
-print(r)
-# print(type(r))
-# print(result)
-print(type(r))
-card_name = r['title']
-card_description = r['description']   
-print('CARD DESCRIPTION')
-print(card_description)
-         
-print('START UPDATE PR')
-url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
-payload = {
-    "title": card_name,
-    "body": card_description
-}
+    print('START UPDATE PR')
+    url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
+    payload = {
+        "title": card_name,
+        "body": card_description
+    }
 
-r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
+    r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
 
-# print(r.json())
-# print('END UPDATE PR')
+    # print(r.json())
+    # print('END UPDATE PR')
 
-# print(response.__dict__)
+    # print(response.__dict__)
 
 
