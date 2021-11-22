@@ -12,7 +12,7 @@ print("Total arguments passed:", n)
 url = sys.argv[1]
 
 token = sys.argv[2]
-context = sys.argv[3]
+context = json.loads(sys.argv[3])
 #print(context)
 import requests, json
 from requests_oauthlib import OAuth1
