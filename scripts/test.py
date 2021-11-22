@@ -56,8 +56,8 @@ for each in r:
    message = each
    card_id = 15043329
    print(message)
-   if len(message.split(':')) > 1:
-      card_id = message.split(':')[0].split('-')[1].strip()
+   # if len(message.split(':')) > 1:
+   #    card_id = message.split(':')[0].split('-')[1].strip()
 
    #print(str(card_id))
    if card_id:
