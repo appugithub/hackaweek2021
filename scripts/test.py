@@ -51,6 +51,7 @@ pp_token = get_pp_token_from_yml()
 
 global_card_id = None
 r = ["Fist commit\n Done1", "Second commit \n Done2"]
+
 for each in r:
    #message = each['commit']['message']
    message = each
