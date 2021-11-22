@@ -38,6 +38,7 @@ access_token = "https://api.projectplace.com/oauth2/access_token"
 test_api_url = "https://service.projectplace.com/api/v1/cards/14862291"
 
 
+
 def get_pp_token_from_yml():
     oauth_pp_token = OAuth1(client_key=CLIENT_KEY, client_secret=CLIENT_SECRET,
                             resource_owner_key=ACCESS_TOKEN_KEY,
