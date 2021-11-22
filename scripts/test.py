@@ -50,13 +50,15 @@ pp_token = get_pp_token_from_yml()
 
 
 global_card_id = None
-
-for each in r.json():
-   message = each['commit']['message']
-   card_id = None
+r = ["Fist commit\n Done1", "Second commit \n Done2"]
+for each in r:
+   #message = each['commit']['message']
+   message = each
+   card_id = 15043329
    print(message)
    if len(message.split(':')) > 1:
       card_id = message.split(':')[0].split('-')[1].strip()
+
    #print(str(card_id))
    if card_id:
       global_card_id = card_id
