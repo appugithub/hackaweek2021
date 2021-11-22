@@ -12,10 +12,11 @@ print("Total arguments passed:", n)
 url = sys.argv[1]
 
 token = sys.argv[2]
-context = json.loads(sys.argv[3])
+
 #print(context)
 import requests, json
 from requests_oauthlib import OAuth1
+context = json.loads(sys.argv[3])
 repo = context['repository']
 pr_number = context['event']['number']
 print(repo)
