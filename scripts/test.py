@@ -21,7 +21,7 @@ repo = context['repository']
 pr_number = context['event']['number']
 print(repo)
 print(pr_number)
-commits_url = f"https://api.github.com/repos/{repository}/pulls/{pr_number}/commits"
+commits_url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}/commits"
 r = requests.get(commits_url, auth=("appu.rongala@gmail.com", token))
 commits = [each for each in r.json()]
 
