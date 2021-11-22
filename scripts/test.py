@@ -49,7 +49,6 @@ pp_token = get_pp_token_from_yml()
 #response = requests.get(url=test_api_url, auth=pp_token)
 
 
-
 global_card_id = None
 
 for each in r.json():
