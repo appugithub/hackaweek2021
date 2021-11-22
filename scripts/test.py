@@ -51,8 +51,8 @@ pp_token = get_pp_token_from_yml()
 
 
 global_card_id = None
-r = ["Store account history \n Added stub to store the history",
-     "Fetch account history \n Added stub to fetch the history"]
+r = ["Store account history \n Added stub to store history",
+     "Fetch account history \n Added stub to fetch history"]
 
 for each in r:
    #message = each['commit']['message']
