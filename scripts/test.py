@@ -58,7 +58,6 @@ for each in r:
    print(message)
    # if len(message.split(':')) > 1:
    #    card_id = message.split(':')[0].split('-')[1].strip()
-
    #print(str(card_id))
    if card_id:
       global_card_id = card_id
