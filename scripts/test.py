@@ -22,7 +22,7 @@ print(repo)
 print(pr_number)
 commits_url = f"https://api.github.com/repos/{repository}/pulls/{pr_number}/commits"
 r = requests.get(commits_url, auth=("appu.rongala@gmail.com", token))
-3commits = [each for each in r.json()]
+commits = [each for each in r.json()]
 
 CLIENT_KEY = '3e6ea444875da784aadae6abc5124b15'
 CLIENT_SECRET = '15d032680057485f96e074978b097179b5155d50'
