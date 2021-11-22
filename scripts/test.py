@@ -55,8 +55,10 @@ global_card_id = None
 for each in r.json():
    message = each['commit']['message']
    card_id = None
+    print(message.split(':'))
    if len(message.split(':')) > 1:
       card_id = message.split(':')[0].split('-')[1].strip()
+   print(str(card_id))
    if card_id:
       global_card_id = card_id
       message = message.split('-')[1]
@@ -68,7 +70,7 @@ for each in r.json():
               "sent_from": "web"}
       card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
       requests.post(url=card_comment_url, auth=pp_token, data=payload)
-   
+print(global_card_id)
 if global_card_id:
     card_url = f'https://service.projectplace.com/api/v1/cards/{global_card_id}'
     result = requests.get(url=card_url, auth=pp_token)
