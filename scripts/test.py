@@ -54,7 +54,7 @@ global_card_id = None
 for each in r.json():
    message = each['commit']['message']
    card_id = None
-    print(message.split(':'))
+   print(message.split(':'))
    if len(message.split(':')) > 1:
       card_id = message.split(':')[0].split('-')[1].strip()
    print(str(card_id))
