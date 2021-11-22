@@ -35,7 +35,6 @@ auth_code_url = "https://api.projectplace.com/oauth2/authorize"
 
 access_token = "https://api.projectplace.com/oauth2/access_token"
 
-
 test_api_url = "https://service.projectplace.com/api/v1/cards/14862291"
 
 
