@@ -53,14 +53,15 @@ pp_token = get_pp_token_from_yml()
 global_card_id = None
 
 for each in r.json():
-   print(each['commit']['message'])
+   message = each['commit']['message']
    card_id = None
-   if len(s.split(':')) > 1:
-      card_id = s.split(':')[0].split('-')[1].strip()
+   if len(message.split(':')) > 1:
+      card_id = message.split(':')[0].split('-')[1].strip()
    if card_id:
       global_card_id = card_id
+      message = message.split('-')[1]
       payload = {"attachments": [],
-              "encoded_text": each['commit']['message'],
+              "encoded_text": message,
               "item_id": card_id,
               "item_name": "card",
               "send_to_external": False,
