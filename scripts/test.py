@@ -21,6 +21,7 @@ repo = context['repository']
 pr_number = context['event']['number']
 print(repo)
 print(pr_number)
+pr_link = f"https://api.github.com/repos/{repo}/pull/{pr_number}"
 commits_url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}/commits"
 r = requests.get(commits_url, auth=("appu.rongala@gmail.com", token))
 commits = [each for each in r.json()]
@@ -48,57 +49,65 @@ pp_token = get_pp_token_from_yml()
 
 #response = requests.get(url=test_api_url, auth=pp_token)
 
+card_id = 15043418
+payload = {"attachments": [],
+           "encoded_text": pr_link,
+           "item_id": card_id,
+           "item_name": "card",
+           "send_to_external": False,
+           "sent_from": "web"}
+card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
+requests.post(url=card_comment_url, auth=pp_token, data=payload)
 
+# global_card_id = None
+# r = ["Store account history \n Added stub to store history",
+#      "Fetch account history \n Added stub to fetch history"]
+#
+# for each in r:
+#    #message = each['commit']['message']
+#    message = each
+#    card_id = 15043418
+#    print(message)
+#    # if len(message.split(':')) > 1:
+#    #    card_id = message.split(':')[0].split('-')[1].strip()
+#    #print(str(card_id))
+#    if card_id:
+#       global_card_id = card_id
+#       #message = message.split('-')[1]
+#       payload = {"attachments": [],
+#               "encoded_text": message,
+#               "item_id": card_id,
+#               "item_name": "card",
+#               "send_to_external": False,
+#               "sent_from": "web"}
+#       card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
+#       requests.post(url=card_comment_url, auth=pp_token, data=payload)
+# print(global_card_id)
+# if global_card_id:
+card_url = f'https://service.projectplace.com/api/v1/cards/{card_id}'
+result = requests.get(url=card_url, auth=pp_token)
+r = result.json()
+print(r)
+# print(type(r))
+# print(result)
+print(type(r))
+card_name = r['title']
+card_description = r['description']
+print('CARD DESCRIPTION')
+print(card_description)
 
-global_card_id = None
-r = ["Store account history \n Added stub to store history",
-     "Fetch account history \n Added stub to fetch history"]
+print('START UPDATE PR')
+url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
+payload = {
+    "title": card_name,
+    "body": card_description
+}
 
-for each in r:
-   #message = each['commit']['message']
-   message = each
-   card_id = 15043418
-   print(message)
-   # if len(message.split(':')) > 1:
-   #    card_id = message.split(':')[0].split('-')[1].strip()
-   #print(str(card_id))
-   if card_id:
-      global_card_id = card_id
-      #message = message.split('-')[1]
-      payload = {"attachments": [],
-              "encoded_text": message,
-              "item_id": card_id,
-              "item_name": "card",
-              "send_to_external": False,
-              "sent_from": "web"}
-      card_comment_url = 'https://service.projectplace.com/api/v3/conversations/comment'
-      requests.post(url=card_comment_url, auth=pp_token, data=payload)
-print(global_card_id)
-if global_card_id:
-    card_url = f'https://service.projectplace.com/api/v1/cards/{global_card_id}'
-    result = requests.get(url=card_url, auth=pp_token)
-    r = result.json()
-    print(r)
-    # print(type(r))
-    # print(result)
-    print(type(r))
-    card_name = r['title']
-    card_description = r['description']   
-    print('CARD DESCRIPTION')
-    print(card_description)
-
-    print('START UPDATE PR')
-    url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
-    payload = {
-        "title": card_name,
-        "body": card_description
-    }
-
-    r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
-
-    # print(r.json())
-    # print('END UPDATE PR')
-
-    # print(response.__dict__)
-
-
+r = requests.post(url, auth=("appu.rongala@gmail.com", token), json=payload)
+#
+#     # print(r.json())
+#     # print('END UPDATE PR')
+#
+#     # print(response.__dict__)
+#
+#
