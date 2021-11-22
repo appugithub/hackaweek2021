@@ -62,7 +62,7 @@ for each in r:
    #print(str(card_id))
    if card_id:
       global_card_id = card_id
-      message = message.split('-')[1]
+      #message = message.split('-')[1]
       payload = {"attachments": [],
               "encoded_text": message,
               "item_id": card_id,
